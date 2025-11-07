@@ -3,18 +3,21 @@ import { ref } from "vue";
 import FlipBook from "../lib/FlipBook.vue";
 import IconArrow from "./components/IconArrow.vue";
 
-// Array of image paths
+// Usar la base del build (import.meta.env.BASE_URL) para que las rutas funcionen en GitHub Pages
+const base = import.meta.env.BASE_URL as string;
+
+// Array of image paths (prefijadas con la base correcta)
 const pages = ref([
-  "images/1.png",
-  "images/2.png",
-  "/images/3.png",
-  "/images/4.png",
-  "/images/5.png",
-  "/images/6.png",
-  "/images/7.png",
-  "/images/8.png",
-  "/images/9.png",
-  "/images/10.png",
+  `${base}images/1.png`,
+  `${base}images/2.png`,
+  `${base}images/3.png`,
+  `${base}images/4.png`,
+  `${base}images/5.png`,
+  `${base}images/6.png`,
+  `${base}images/7.png`,
+  `${base}images/8.png`,
+  `${base}images/9.png`,
+  `${base}images/10.png`,
 ]);
 </script>
 
