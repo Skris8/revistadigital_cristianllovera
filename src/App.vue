@@ -31,6 +31,7 @@ const pages = ref([
       :click-to-zoom="true"
       alt="Book"
     >
+      
       <button
         aria-label="Left"
         class="flipbook-button button-prev"
@@ -55,7 +56,8 @@ const pages = ref([
 .slider-wrap {
   position: relative;
   width: 100%;
-  max-width: 1120px;
+  /* Duplicamos el máximo ancho para mostrar la revista al doble de tamaño */
+  max-width: 2240px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -63,8 +65,10 @@ const pages = ref([
 .slider-wrap .flipbook {
   display: block;
   position: relative;
-  width: calc(100% - 128px);
-  height: 410px;
+  /* Aumentamos el ancho disponible (teniendo en cuenta los botones) */
+  width: calc(100% - 256px);
+  /* Doblamos la altura para hacer la revista al doble de tamaño */
+  height: 820px;
   margin: 0 auto;
 }
 
@@ -83,12 +87,27 @@ const pages = ref([
 }
 
 .slider-wrap .flipbook-button.button-prev {
-  left: -64px;
+  /* Reposicionamos los botones acorde al nuevo tamaño */
+  left: -128px;
   transform: translateY(-50%);
 }
 .slider-wrap .flipbook-button.button-next {
-  right: -64px;
+  right: -128px;
   transform: rotate(180deg) translateY(50%);
+}
+
+/* Indicador de página */
+.slider-wrap .page-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  z-index: 30;
 }
 .slider-wrap .flipbook-button.disabled {
   opacity: 0.35;
