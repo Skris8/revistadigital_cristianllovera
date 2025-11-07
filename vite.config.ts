@@ -4,9 +4,6 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Base public path when served from GitHub Pages (repo pages).
-  // Replace with '/' if you publish to a user/organization site (username.github.io).
-  base: "/revistadigital_cristianllovera/",
   plugins: [vue()],
   build: {
     copyPublicDir: false,
